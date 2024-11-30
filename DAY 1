@@ -1,0 +1,31 @@
+// DAY 1 CDOE 
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        
+        if(arr.length==1){
+            return -1;
+        }
+        int count=0;
+    
+       for(int i=0;i<arr.length-1;i++){
+           if(arr[i]==arr[i+1]){
+               count++;
+           }
+           if(count==arr.length){
+               return -1;
+           }
+       }
+       
+       Arrays.sort(arr);
+       int n=arr.length;
+       int last=arr[n-1];
+       for(int i=n-2;i>=0;i--){
+           
+           if(last!=arr[i]){
+               return arr[i];
+           }
+           
+       }
+       return -1;
+    }
+}
